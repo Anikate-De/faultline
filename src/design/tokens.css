@@ -1,0 +1,128 @@
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0a0e13;
+  --surface: #10161d;
+  --raised: #161f29;
+  --border: #243140;
+  --text: #e8eef5;
+  --muted: #93a4b8;
+  --faint: #8797a9;
+  --accent: #4fd1c5;
+  --accent-strong: #2dd4bf;
+  --info: #60a5fa;
+  --success: #34d399;
+  --warn: #fbbf24;
+  --danger: #fb7185;
+  --critical: #f43f5e;
+  --chart-teal: #4fd1c5;
+  --chart-sky: #60a5fa;
+  --chart-amber: #fbbf24;
+  --chart-violet: #a78bfa;
+  --chart-rose: #fb7185;
+  --chart-lime: #a3e635;
+  --interview: #a78bfa;
+  --milestone-bg: #1a102c;
+  --milestone-border: #6d28d9;
+  --milestone-text: #d8b4fe;
+  --focus: #7dd3fc;
+  --accent-contrast: #04100f;
+  --overlay: rgb(3 7 12 / 0.72);
+  --shadow-card: 0 1px 0 rgb(255 255 255 / 0.03), 0 8px 24px rgb(0 0 0 / 0.18);
+
+  --tone-info-bg: rgb(96 165 250 / 0.09);
+  --tone-info-border: rgb(96 165 250 / 0.3);
+  --tone-success-bg: rgb(52 211 153 / 0.09);
+  --tone-success-border: rgb(52 211 153 / 0.3);
+  --tone-warn-bg: rgb(251 191 36 / 0.09);
+  --tone-warn-border: rgb(251 191 36 / 0.32);
+  --tone-danger-bg: rgb(251 113 133 / 0.09);
+  --tone-danger-border: rgb(251 113 133 / 0.32);
+  --tone-interview-bg: rgb(167 139 250 / 0.09);
+  --tone-interview-border: rgb(167 139 250 / 0.32);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --raised: #f0f3f7;
+  --border: #d8dee7;
+  --text: #0f172a;
+  --muted: #526173;
+  --faint: #596879;
+  --accent: #0b5f59;
+  --accent-strong: #0e6b63;
+  --info: #1d4ed8;
+  --success: #047857;
+  --warn: #854d0e;
+  --danger: #be123c;
+  --critical: #be123c;
+  --chart-teal: #0f766e;
+  --chart-sky: #1d4ed8;
+  --chart-amber: #a16207;
+  --chart-violet: #6d28d9;
+  --chart-rose: #be123c;
+  --chart-lime: #4d7c0f;
+  --interview: #6d28d9;
+  --milestone-bg: #f5f0ff;
+  --milestone-border: #a855f7;
+  --milestone-text: #6b21a8;
+  --focus: #0369a1;
+  --accent-contrast: #ffffff;
+  --overlay: rgb(15 23 42 / 0.42);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px rgb(15 23 42 / 0.05);
+
+  --tone-info-bg: rgb(29 78 216 / 0.06);
+  --tone-info-border: rgb(29 78 216 / 0.25);
+  --tone-success-bg: rgb(4 120 87 / 0.07);
+  --tone-success-border: rgb(4 120 87 / 0.25);
+  --tone-warn-bg: rgb(161 98 7 / 0.08);
+  --tone-warn-border: rgb(161 98 7 / 0.3);
+  --tone-danger-bg: rgb(190 18 60 / 0.06);
+  --tone-danger-border: rgb(190 18 60 / 0.25);
+  --tone-interview-bg: rgb(109 40 217 / 0.06);
+  --tone-interview-border: rgb(109 40 217 / 0.25);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

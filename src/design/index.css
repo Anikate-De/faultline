@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./typography.css";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-info: var(--info);
+  --color-success: var(--success);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-critical: var(--critical);
+  --color-chart-teal: var(--chart-teal);
+  --color-chart-sky: var(--chart-sky);
+  --color-chart-amber: var(--chart-amber);
+  --color-chart-violet: var(--chart-violet);
+  --color-chart-rose: var(--chart-rose);
+  --color-chart-lime: var(--chart-lime);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}

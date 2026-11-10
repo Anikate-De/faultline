@@ -1,0 +1,82 @@
+:root {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:
+    "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+}
+
+h3 {
+  font-size: 1.0625rem;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+code,
+kbd,
+pre,
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.prose-measure {
+  max-width: 68ch;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  transform: translateY(-150%);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #04100f;
+  padding: 10px 14px;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.dotted-grid {
+  background-image: radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+.interview-switch[data-state="checked"] {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.interview-switch-thumb {
+  transform: translateX(4px);
+  background: var(--faint);
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background-color 150ms ease;
+}
+
+.interview-switch[data-state="checked"] .interview-switch-thumb {
+  transform: translateX(24px);
+  background: var(--accent-contrast);
+}
