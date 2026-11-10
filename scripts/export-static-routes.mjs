@@ -13,6 +13,7 @@ const routes = new Set([
   "/progress",
   "/about",
   "/_lab",
+  "/tracks/kubernetes",
 ]);
 
 for (const module of manifest.modules) {
