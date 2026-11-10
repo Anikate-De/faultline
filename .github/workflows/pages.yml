@@ -37,6 +37,7 @@ jobs:
       - run: npm ci
       - run: FAULTLINE_BASE=/faultline/ npm run build
       - run: cp dist/index.html dist/404.html
+      - run: node scripts/export-static-routes.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
