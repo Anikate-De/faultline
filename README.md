@@ -64,8 +64,8 @@ e2e/                  Playwright checks
 ## Gates
 
 - Gate 0: setup complete.
-- Gate 1: full manifest complete, reviewed, validated, frozen at 476 modules after the Kubernetes extension.
-- Gate 2: demo awaiting explicit approval. No module-authoring agents have been spawned.
-- Gate 3: blocked until approval.
+- Gate 1: full manifest complete, validated, extended to 476 rows with Kubernetes.
+- Gate 2: demo approved.
+- Gate 3: all 476 rows authored; review and deployment continuing.
 
 See `docs/BUILD_LEDGER.md` and `docs/GATE2_PACKET.md`.

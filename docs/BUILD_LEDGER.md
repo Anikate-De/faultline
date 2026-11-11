@@ -112,13 +112,13 @@ Gate 2 approved 2026-11-10. Waves 3–5 were authored and reviewed by disjoint a
 | Check | Result |
 |---|---|
 | `npm run typecheck` | pass |
-| `npm run validate:manifest` | pass, 476 modules |
+| `npm run validate:manifest` | pass, 476 rows |
 | `npm run validate:content` | pass, 412 modules + 64 case files |
 | `npm run test` | pass, 4,560 tests |
 | `npm run build` | pass |
 | `npm run test:e2e` | pass, 28 tests; all 412 modules + all 64 case files at production preview |
 | `npm run crawl` | 423 routes, 0 failures |
-| Performance | 83.9KB initial JS gzip; 19.1KB gzip search index; LCP 2.45s / CLS 0 on throttled mobile; 76 reviewed modules precached (3.24MB) |
+| Performance | 84.0KB initial JS gzip; 94.6KB gzip search index; LCP 2.45s / CLS 0 on throttled mobile; 476 rows precached (13.05MB) |
 | Offline | PWA precache 539 entries / 13.05MB; offline deep-link verified |
 | Search index | 412 modules; 64 case files use the case registry |
 | Axe (all 412 modules + 64 case files) | clean |
