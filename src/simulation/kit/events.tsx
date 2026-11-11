@@ -45,7 +45,7 @@ export function IncidentBanner({
           <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-faint">Check first</p>
           <ul className="mt-1 space-y-0.5 text-xs text-text">
             {["Inspect the node and its recent changes.", "Confirm whether it should be removed from rotation.", "Check the metric that feeds its health."].map((check) => (
-              <li key={check} className="flex gap-1.5">
+              <li key={check} className="flex min-w-0 gap-1.5 break-words">
                 <ChevronRight aria-hidden="true" className="mt-0.5 size-3 shrink-0 text-accent" />
                 {check}
               </li>
@@ -96,7 +96,7 @@ export function IncidentBanner({
         <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-faint">Check first</p>
         <ul className="mt-1 space-y-0.5 text-xs text-text">
           {checks.map((check) => (
-            <li key={check} className="flex gap-1.5">
+            <li key={check} className="flex min-w-0 gap-1.5 break-words">
               <ChevronRight aria-hidden="true" className="mt-0.5 size-3 shrink-0 text-accent" />
               {check}
             </li>

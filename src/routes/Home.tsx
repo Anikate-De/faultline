@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Beaker, BookOpen, Gauge, Radio, ShieldCheck, Sparkles, Wrench } from "lucide-react";
 import { AUTHORED_METAS } from "@/modules/registry";
 import { TRACKS, PATHWAY } from "@/content/tracks";
+import { CASE_FILES, MANIFEST } from "@/content/manifest";
 import { DRILLS } from "@/content/drills";
 import { useAppStore } from "@/lib/store";
 import { pluralize } from "@/lib/format";
@@ -20,7 +21,7 @@ function ContinueCard() {
     return (
       <div className="rounded-[16px] border border-dashed border-border bg-surface p-5">
         <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-faint">Continue</p>
-        <p className="mt-1 text-sm text-muted">The first authored module is in review. The 456-module manifest is frozen.</p>
+        <p className="mt-1 text-sm text-muted">The first authored module is in review. The {MANIFEST.length}-row manifest is frozen.</p>
       </div>
     );
   }
@@ -130,7 +131,7 @@ export default function Home() {
             <p className="text-sm text-muted">Public incidents and clearly labeled composites.</p>
           </div>
           <Link to="/case-files" className="inline-flex items-center gap-1 text-sm text-accent hover:underline">
-            All 60 <ArrowRight aria-hidden="true" className="size-4" />
+            All {CASE_FILES.length} <ArrowRight aria-hidden="true" className="size-4" />
           </Link>
         </div>
         <CaseFileRow />

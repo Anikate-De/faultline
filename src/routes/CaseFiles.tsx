@@ -72,7 +72,7 @@ export default function CaseFiles() {
       <div className="rounded-[12px] border border-border bg-surface p-4 text-xs text-muted">
         <Badge tone={authored ? "success" : "warn"}>{authored} authored</Badge>
         <p className="mt-2">
-          The 60-row case-file manifest is frozen. Authored files appear here with a working timeline and decision
+          The {CASE_FILES.length}-case-file manifest is frozen. Authored files appear here with a working timeline and decision
           points; planned rows never render as if they were complete.
         </p>
       </div>

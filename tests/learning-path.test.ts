@@ -33,7 +33,7 @@ describe("learning path", () => {
 
   it("places all case files as milestones after their prerequisites", () => {
     const caseFiles = path.filter((item) => item.milestone);
-    expect(caseFiles).toHaveLength(60);
+    expect(caseFiles).toHaveLength(64);
     for (const item of caseFiles) {
       expect(item.module.track).toBe("case-files");
       const at = indexById.get(item.module.id) ?? -1;
