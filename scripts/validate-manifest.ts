@@ -22,8 +22,8 @@ const EXPECTED: Record<string, number> = {
   "cloud-networking": 32,
   compliance: 20,
   capacity: 22,
-  "case-files": 60,
-  kubernetes: 0,
+  "case-files": 64,
+  kubernetes: 16,
 };
 
 const TRACK_TITLES: Record<string, string> = {
@@ -131,7 +131,7 @@ for (const [track, expected] of Object.entries(EXPECTED)) {
   const got = tracks[track]?.length ?? 0;
   if (got !== expected) errors.push(`${track}: ${got} rows, expected ${expected}`);
 }
-if (rows.length !== 456) errors.push(`total: ${rows.length} rows, expected 456`);
+if (rows.length !== 476) errors.push(`total: ${rows.length} rows, expected 476`);
 
 // Rows
 const ids = new Set<string>();
@@ -150,7 +150,6 @@ for (const [track, list] of Object.entries(tracks)) {
     if (ids.has(id)) errors.push(`${label}: duplicate ID`);
     ids.add(id);
     if (row.Track !== track) errors.push(`${label}: Track column ${row.Track} does not match section ${track}`);
-    if (track === "kubernetes") errors.push(`${label}: Kubernetes must have no modules`);
     if (track !== "case-files" && !id.startsWith(`${track}-`)) errors.push(`${label}: ID does not start with ${track}-`);
     if (track === "case-files" && !id.startsWith("case-")) errors.push(`${label}: case file ID must start with case-`);
     if (Number(row["#"]) !== index + 1) errors.push(`${label}: order ${row["#"]} does not match position ${index + 1}`);

@@ -5,16 +5,16 @@
 | Gate | Status | Evidence |
 |---|---|---|
 | 0 Setup | complete | Vite/React/TS scaffold, Tailwind 4, Vitest, Playwright, docs |
-| 1 Manifest | complete, frozen | `docs/MODULE_MANIFEST.md`, `docs/CURRICULUM_REVIEW.md`, 456 modules validated |
+| 1 Manifest | complete, frozen | `docs/MODULE_MANIFEST.md`, `docs/CURRICULUM_REVIEW.md`, 476 modules validated |
 | 2 Demo approval | **approved by user 2026-11-10** | Revised foundation/demo; Radix/cmdk controls, flat path, undo, offline PWA; `docs/GATE2_PACKET.md` |
-| 3 Scale | authoring complete | All 456 rows authored: 396 modules + 60 case files; 135 modules reviewed, remaining modules and case accuracy review pending |
+| 3 Scale | authoring complete | All 476 rows authored: 412 modules + 64 case files; 151 modules and 4 case files reviewed |
 
 ## Waves
 
 | Wave | Agent | Module IDs | Titles | Purposes | Status |
 |---|---|---|---|---|---|
 | 0 | orchestrator | — | Foundation | Scaffold, contracts, manifest, engine, demo | complete |
-| 1 | orchestrator | — | Manifest | 456 rows, coverage review, freeze | complete |
+| 1 | orchestrator | — | Manifest | 476 rows after Kubernetes extension; coverage review, freeze | complete |
 | 2 | orchestrator | `caching-hot-key-sharding` | Hot Key Sharding | Gate 2 demo | complete; approved |
 | 3 | author A | `caching-cache-stampede`, `traffic-alb-connection-limit` | Thundering Herd on Cache Expiry; ALB Connection Limit Reached | Exemplar models and content | reviewed; fixes committed |
 | 3 | author B | `mongodb-adding-readers`, `deployment-canary-metric-gate` | Adding Readers During an Incident; Canary with a Metric Gate | Exemplar models and content | reviewed; fixes committed |
@@ -112,17 +112,17 @@ Gate 2 approved 2026-11-10. Waves 3–5 were authored and reviewed by disjoint a
 | Check | Result |
 |---|---|
 | `npm run typecheck` | pass |
-| `npm run validate:manifest` | pass, 456 modules |
-| `npm run validate:content` | pass, 396 modules + 60 case files |
-| `npm run test` | pass, 4,377 tests |
+| `npm run validate:manifest` | pass, 476 modules |
+| `npm run validate:content` | pass, 412 modules + 64 case files |
+| `npm run test` | pass, 4,560 tests |
 | `npm run build` | pass |
-| `npm run test:e2e` | pass, 28 tests; all 396 modules + all 60 case files at production preview |
-| `npm run crawl` | 407 routes, 0 failures |
+| `npm run test:e2e` | pass, 28 tests; all 412 modules + all 64 case files at production preview |
+| `npm run crawl` | 423 routes, 0 failures |
 | Performance | 83.9KB initial JS gzip; 19.1KB gzip search index; LCP 2.45s / CLS 0 on throttled mobile; 76 reviewed modules precached (3.24MB) |
-| Offline | PWA precache 519 entries / 12.56MB; offline deep-link verified |
-| Search index | 396 modules; 60 case files use the case registry |
-| Axe (all 396 modules + 60 case files) | clean |
-| 360/390 scan (all 396 modules + 60 case files) | no page or simulator overflow |
+| Offline | PWA precache 539 entries / 13.05MB; offline deep-link verified |
+| Search index | 412 modules; 64 case files use the case registry |
+| Axe (all 412 modules + 64 case files) | clean |
+| 360/390 scan (all 412 modules + 64 case files) | no page or simulator overflow |
 | `npm run lint` | clean |
 | Axe key routes, dark + light | clean |
 
@@ -131,5 +131,5 @@ Gate 2 approved 2026-11-10. Waves 3–5 were authored and reviewed by disjoint a
 | Commit | Scope |
 |---|---|
 | scaffold | Vite + React + TS, Tailwind tokens, tooling |
-| manifest | 456-module curriculum and review |
+| manifest | 476-row curriculum including Kubernetes |
 | foundation | engine, kit, routes, lab, demo |

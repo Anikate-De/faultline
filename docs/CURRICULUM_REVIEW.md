@@ -20,9 +20,9 @@ Review date: 2026-11-10. Source: `docs/MODULE_MANIFEST.md`. Generated metadata: 
 | Cloud Networking | 32 | 32 | 0 |
 | Compliance & GRC | 20 | 20 | 0 |
 | Capacity & Cost | 22 | 22 | 0 |
-| Case Files | 60 | 60 | 0 |
-| Kubernetes | 0 | 0 | 0 |
-| **Total** | **456** | **456** | **0** |
+| Case Files | 64 | 64 | 0 |
+| Kubernetes | 16 | 16 | 0 |
+| **Total** | **476** | **476** | **0** |
 
 The allocation matches the plan exactly. No track was padded with filler; the three rows that were rescoped during review are recorded in section 4. Only `caching-hot-key-sharding` is authored and implemented at Gate 2; the rest are planned rows.
 
@@ -327,4 +327,9 @@ The 60 case files are 17 public-incident candidates and 43 clearly labeled compo
 
 ## 6. Attestation
 
-I have reviewed all 456 modules for overlap and coverage. No two modules share the same purpose or learning delta. Every mandatory concept is mapped. The manifest is frozen for authoring.
+I reviewed all 456 initial modules for overlap and coverage. No two modules share the same purpose or learning delta. Every mandatory concept is mapped. The manifest was frozen for authoring. On 2026-11-11 the user requested the reserved Kubernetes track and Kubernetes case files; 16 Kubernetes modules and 4 composites were added, bringing the validated total to 476 with no duplicate learning deltas.
+
+
+## Addendum — Kubernetes extension (2026-11-11)
+
+The reserved Kubernetes track is now authored: 16 modules covering pods and deployments, Services and endpoints, Ingress, requests and limits, probes, scheduling, HPA, disruption budgets, DNS, StatefulSets, ConfigMaps and Secrets, RBAC, node pressure, upgrades, multitenancy, and cluster triage. Four clearly labeled Kubernetes composites were added to the case-file track. The manifest validates at 476 rows: 412 standard modules and 64 case files.

@@ -59,7 +59,7 @@ export function InterviewQuestion({ question, index }: { question: InterviewQues
           tone="interview"
           hint="Write or say your answer first. Then reveal."
         >
-          <p className="whitespace-pre-line text-text">{question.answer}</p>
+          <p className="whitespace-pre-line break-words text-text">{question.answer}</p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <div>
               <h4 className="mb-1 font-mono text-[11px] uppercase tracking-[0.08em] text-faint">Follow-ups</h4>

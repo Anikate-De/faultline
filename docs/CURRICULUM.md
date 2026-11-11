@@ -1,6 +1,6 @@
 # Faultline — Curriculum
 
-Target: ~456 modules (396 core + 60 case files). Minimum acceptable: 300 modules with at least 30 case files. Never ship filler.
+Target: 476 modules (412 core + 64 case files). Minimum acceptable: 300 modules with at least 30 case files. Never ship filler.
 
 | Track | ID | Purpose | Modules |
 |---|---|---|---|
@@ -18,14 +18,15 @@ Target: ~456 modules (396 core + 60 case files). Minimum acceptable: 300 modules
 | Cloud Networking | `cloud-networking` | VPC, peering, TGW, route tables, PrivateLink, IAM | 32 |
 | Compliance & GRC | `compliance` | HIPAA, GDPR, SOC 2, audit, data residency | 20 |
 | Capacity & Cost | `capacity` | Autoscaling, scaling races, unit economics | 22 |
-| Case Files | `case-files` | Real incidents and clearly labeled composites | 60 |
-| Kubernetes | `kubernetes` | Reserved; no modules in this build | 0 |
+| Case Files | `case-files` | Real incidents and clearly labeled composites | 64 |
+| Kubernetes | `kubernetes` | Pods, Services, Ingress, scheduling, autoscaling, storage, RBAC, upgrades | 16 |
 
 ## Paths
 
 - Beginner: Foundations → Observability → Traffic → Caching → Databases.
 - Incident response: Foundations → Observability → Caching → Databases → Reliability.
 - AWS: Traffic → Containers → Databases → Cloud Networking → Capacity.
+- Kubernetes: Kubernetes → Containers → Deployment.
 
 Prerequisites are guidance, not locks. Case files slot every 5–6 modules within a track where a real public incident fits.
 

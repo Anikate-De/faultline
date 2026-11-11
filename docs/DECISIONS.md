@@ -147,3 +147,8 @@ All 396 non-case manifest rows now have a module. The production-preview gate pa
 ## D-033 — All 456 rows authored
 
 The full manifest is authored: 396 non-case modules plus 60 case files. The case-file platform adds a typed `caseStudy`, a lazy registry, a renderer for timelines/decisions/postmortems/sources, validator rules, and public/composite accuracy labels. All 60 cases pass content validation; composites are explicitly labeled as non-real scenarios, and public incidents carry source-verification notes. The production gate passes 4,377 unit/component tests, 28 Playwright tests, 407-route crawl, Axe across all 456 routes, typecheck, lint, and build. 135 modules remain marked reviewed; the rest and the public case files still need final read-only/accuracy review. Case files can now be committed and deployed without presenting planned content as complete.
+
+
+## D-034 — Kubernetes extension
+
+On 2026-11-11 the user requested Kubernetes sections and case studies. The reserved Kubernetes track was expanded to 16 reviewed modules spanning pods/deployments, Services, Ingress, requests and limits, probes, scheduling, HPA, PDBs, DNS, StatefulSets, config/secrets, RBAC, node pressure, upgrades, multitenancy, and cluster triage. Four clearly labeled Kubernetes composites were added. The manifest now validates at 476 rows (412 modules + 64 case files). The full gate passes 4,560 tests, 28 Playwright tests, a 423-route crawl, and Axe/360 checks on the new pages. The site is built at `/faultline/` for GitHub Pages with static route entries for deep links.

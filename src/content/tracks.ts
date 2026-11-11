@@ -153,17 +153,16 @@ export const TRACKS: TrackDef[] = [
     purpose: "Real incidents and clearly labeled composites",
     description:
       "Replay public incidents and original composite scenarios: timeline, telemetry, decision points, and the fix under pressure.",
-    planned: 60,
+    planned: 64,
   },
   {
     id: "kubernetes",
     title: "Kubernetes",
     short: "Kubernetes",
-    purpose: "Reserved for a later build",
+    purpose: "Run, route, scale, and debug workloads on Kubernetes",
     description:
-      "This track is intentionally empty. You will learn Kubernetes from a clean baseline, not as a bolt-on to this build.",
-    planned: 0,
-    reserved: true,
+      "Pods, Services, Ingress, requests and limits, probes, scheduling, autoscaling, disruption budgets, DNS, storage, config, RBAC, eviction, upgrades, and tenancy.",
+    planned: 16,
   },
 ];
 
@@ -192,6 +191,7 @@ export const PATHWAY = [
   { id: "beginner", title: "Start here", note: "New to reliability", tracks: ["foundations", "observability", "traffic", "caching"] },
   { id: "incident", title: "Incident response", note: "On-call and diagnosis", tracks: ["foundations", "observability", "caching", "databases", "reliability"] },
   { id: "aws", title: "AWS platform", note: "Build and operate", tracks: ["traffic", "containers", "databases", "cloud-networking", "capacity"] },
+  { id: "kubernetes", title: "Kubernetes", note: "Run and debug workloads", tracks: ["kubernetes", "containers", "deployment"] },
 ] satisfies { id: string; title: string; note: string; tracks: TrackId[] }[];
 
 export const NAV_ICONS = { Lock, Workflow };

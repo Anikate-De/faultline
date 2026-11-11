@@ -2,7 +2,7 @@
 
 An interactive SRE and DevOps field lab. Break a realistic system, read the signals, and learn the fix and its tradeoff.
 
-**Status:** foundation complete, Gate 2 approved, all 456 manifest rows authored: 396 modules across fifteen tracks plus 60 case files. 135 modules are reviewed; the rest and the public-case accuracy review remain. Case files are clearly labeled public or composite.
+**Status:** foundation complete, Gate 2 approved, all 476 manifest rows authored: 412 modules across sixteen tracks plus 64 case files. 151 modules and 4 Kubernetes case files are reviewed; the remaining modules and the broader public-case accuracy review remain. Case files are clearly labeled public or composite.
 
 ## TODO
 
@@ -64,7 +64,7 @@ e2e/                  Playwright checks
 ## Gates
 
 - Gate 0: setup complete.
-- Gate 1: full manifest complete, reviewed, validated, frozen at 456 modules.
+- Gate 1: full manifest complete, reviewed, validated, frozen at 476 modules after the Kubernetes extension.
 - Gate 2: demo awaiting explicit approval. No module-authoring agents have been spawned.
 - Gate 3: blocked until approval.
 
