@@ -1510,6 +1510,76 @@
       "difficulty": 3
     },
     {
+      "id": "kubernetes-dns",
+      "slug": "dns",
+      "title": "Cluster DNS and Resolution",
+      "track": "kubernetes",
+      "tags": [
+        "CoreDNS",
+        "ndots",
+        "search path",
+        "headless service",
+        "DNS latency"
+      ],
+      "productionQuestion": "Calls to a Service name fail intermittently while pod IPs work. What do you check?",
+      "learningDelta": "CoreDNS, ndots, and search paths shape resolution; DNS failures look like application timeouts",
+      "objectives": [
+        "Read resolv.conf and predict how ndots and search paths expand a lookup.",
+        "Separate DNS query amplification from CoreDNS capacity and application latency.",
+        "Explain why a headless Service returns endpoint addresses instead of a virtual IP.",
+        "Choose a fix that reduces lookup volume without hiding a real CoreDNS failure."
+      ],
+      "minutes": 18,
+      "difficulty": 3
+    },
+    {
+      "id": "kubernetes-incident-debug",
+      "slug": "incident-debug",
+      "title": "Cluster Incident Triage",
+      "track": "kubernetes",
+      "tags": [
+        "triage",
+        "events",
+        "pending",
+        "crashloop",
+        "notready",
+        "logs"
+      ],
+      "productionQuestion": "Half the pods are Pending, some CrashLoop, and one node is NotReady. What order?",
+      "learningDelta": "Cluster triage walks node, scheduler, pod, container, and app using events and status before logs; symptoms often originate below",
+      "objectives": [
+        "Order evidence from node conditions to scheduler events to container logs.",
+        "Distinguish Pending, CrashLoopBackOff, and NotReady by the layer that produces them.",
+        "Recognize when logs are the wrong first tool.",
+        "Reduce time to root cause by following the dependency direction."
+      ],
+      "minutes": 20,
+      "difficulty": 4
+    },
+    {
+      "id": "kubernetes-upgrades",
+      "slug": "upgrades",
+      "title": "Cluster Upgrades and Version Skew",
+      "track": "kubernetes",
+      "tags": [
+        "version skew",
+        "deprecation",
+        "drain",
+        "cordon",
+        "upgrade"
+      ],
+      "productionQuestion": "The control plane is upgraded but nodes are two minor versions behind. What breaks?",
+      "learningDelta": "Version skew, removed APIs, and draining determine upgrade safety; control plane and kubelet versions have supported bounds",
+      "objectives": [
+        "Check control plane and kubelet versions against the supported skew.",
+        "Explain why a removed API can fail a workload even when the skew is valid.",
+        "Plan cordon, drain, and capacity so an upgrade does not remove serving capacity.",
+        "Choose the order of control plane and node upgrades."
+      ],
+      "minutes": 18,
+      "difficulty": 3
+    },
+    {
       "id": "databases-read-replica-cold",
       "slug": "read-replica-cold",
       "title": "Cold Read Replicas",
@@ -1620,6 +1690,30 @@
         "Explain how manual changes accumulate between reconciliation passes.",
         "Choose a diff and reconciliation cadence that fits the change rate.",
         "Design an audit path that explains a production-only setting."
+      ],
+      "minutes": 16,
+      "difficulty": 2
+    },
+    {
+      "id": "kubernetes-config-secrets",
+      "slug": "config-secrets",
+      "title": "ConfigMaps and Secrets",
+      "track": "kubernetes",
+      "tags": [
+        "ConfigMap",
+        "Secret",
+        "env",
+        "volume mount",
+        "reload",
+        "encryption"
+      ],
+      "productionQuestion": "A ConfigMap change did not reach the running app. Why?",
+      "learningDelta": "ConfigMaps and Secrets are injected at pod start; consumers must reload or roll pods, and Secret base64 is not encryption",
+      "objectives": [
+        "Explain when a ConfigMap or Secret update reaches a running container.",
+        "Choose between environment injection, volume mounts, and a rollout.",
+        "Separate Secret encoding from encryption at rest.",
+        "Recognize stale configuration before scaling or restarting blindly."
       ],
       "minutes": 16,
       "difficulty": 2
@@ -3772,6 +3866,29 @@
       "difficulty": 3
     },
     {
+      "id": "kubernetes-hpa",
+      "slug": "hpa",
+      "title": "Horizontal Pod Autoscaling",
+      "track": "kubernetes",
+      "tags": [
+        "HPA",
+        "metrics server",
+        "target utilization",
+        "stabilization",
+        "bottleneck"
+      ],
+      "productionQuestion": "HPA adds pods but p99 stays high. Which bottleneck is downstream?",
+      "learningDelta": "HPA scales on observed metrics and stabilization windows; scaling the wrong metric or a saturated dependency adds cost without relief",
+      "objectives": [
+        "Predict replica count from the HPA target, the metric, and the maximum.",
+        "Separate a workload that needs more pods from a dependency that needs more capacity.",
+        "Recognize when the selected metric does not track the load the service receives.",
+        "Explain why stabilizing and maximum settings change the time to recover."
+      ],
+      "minutes": 18,
+      "difficulty": 3
+    },
+    {
       "id": "traffic-host-routing",
       "slug": "host-routing",
       "title": "Host and Path Routing",
@@ -4237,8 +4354,32 @@
       "difficulty": 2
     },
     {
+      "id": "kubernetes-ingress",
+      "slug": "kubernetes-ingress",
+      "title": "Ingress and Routing",
+      "track": "kubernetes",
+      "tags": [
+        "ingress",
+        "ingress class",
+        "host",
+        "path",
+        "TLS",
+        "controller"
+      ],
+      "productionQuestion": "The Ingress works for one host and returns 404 for another. Where is the mismatch?",
+      "learningDelta": "Ingress is a set of host and path rules plus a controller; the object alone does not route traffic",
+      "objectives": [
+        "Separate an Ingress object from the controller that implements it.",
+        "Trace a request through host, path, and backend Service rules.",
+        "Distinguish a 404 from a 503 at the ingress layer.",
+        "Diagnose a host or path rule that points at the wrong backend."
+      ],
+      "minutes": 16,
+      "difficulty": 2
+    },
+    {
       "id": "mesh-ingress",
-      "slug": "ingress",
+      "slug": "mesh-ingress",
       "title": "Ingress Gateway",
       "track": "mesh",
       "tags": [
@@ -4698,6 +4839,29 @@
       ],
       "minutes": 14,
       "difficulty": 1
+    },
+    {
+      "id": "kubernetes-probes",
+      "slug": "probes",
+      "title": "Liveness, Readiness, and Startup",
+      "track": "kubernetes",
+      "tags": [
+        "liveness",
+        "readiness",
+        "startup",
+        "probe timing",
+        "failure threshold"
+      ],
+      "productionQuestion": "A slow-starting app is killed before it can become ready. Which probe is wrong?",
+      "learningDelta": "Liveness restarts, readiness removes traffic, and startup protects boot; choosing the wrong probe turns a slow start into a restart loop",
+      "objectives": [
+        "Separate the actions of liveness, readiness, and startup probes.",
+        "Calculate the detection window from delay, period, and failure threshold.",
+        "Protect a slow boot with a startup probe instead of a long liveness delay.",
+        "Debug a restart loop without removing readiness from the traffic path."
+      ],
+      "minutes": 16,
+      "difficulty": 2
     },
     {
       "id": "reliability-load-shedding",
@@ -5395,6 +5559,29 @@
       "difficulty": 2
     },
     {
+      "id": "kubernetes-multitenancy",
+      "slug": "multitenancy",
+      "title": "Namespaces, Quotas, and Isolation",
+      "track": "kubernetes",
+      "tags": [
+        "namespace",
+        "resource quota",
+        "limit range",
+        "network policy",
+        "admission"
+      ],
+      "productionQuestion": "Two teams share a cluster and one team's pods starve the other. What isolation is missing?",
+      "learningDelta": "Namespaces organize objects; quotas, limit ranges, network policies, and admission isolate resources, not namespaces alone",
+      "objectives": [
+        "Separate namespace organization from actual resource and network isolation.",
+        "Use a ResourceQuota and a LimitRange to bound a team's consumption.",
+        "Explain why a NetworkPolicy needs an enforcing CNI and a default-deny posture.",
+        "Recognize when a shared cluster needs a stronger boundary than a namespace."
+      ],
+      "minutes": 18,
+      "difficulty": 3
+    },
+    {
       "id": "cloud-networking-nat-gateway",
       "slug": "nat-gateway",
       "title": "NAT Gateway",
@@ -5530,6 +5717,29 @@
         "Trace TLS termination, client IP, and health checks across the two layers.",
         "Predict the latency and failure behavior of the extra hop.",
         "Decide between NLB fronting, DNS sharding, and a single ALB."
+      ],
+      "minutes": 18,
+      "difficulty": 3
+    },
+    {
+      "id": "kubernetes-node-pressure",
+      "slug": "node-pressure",
+      "title": "Node Pressure and Eviction",
+      "track": "kubernetes",
+      "tags": [
+        "eviction",
+        "node pressure",
+        "QoS",
+        "ephemeral storage",
+        "thresholds"
+      ],
+      "productionQuestion": "Pods are evicted while CPU is low. Which node condition triggered it?",
+      "learningDelta": "Kubelet evicts on memory, disk, and PID pressure using QoS and thresholds; CPU pressure alone does not evict",
+      "objectives": [
+        "Read node conditions and distinguish memory, disk, and PID pressure.",
+        "Predict eviction order from QoS class, usage above requests, and priority.",
+        "Recognize ephemeral storage as an eviction source even when memory is free.",
+        "Protect a critical workload without overprovisioning the whole node."
       ],
       "minutes": 18,
       "difficulty": 3
@@ -6021,6 +6231,52 @@
       "difficulty": 2
     },
     {
+      "id": "kubernetes-pdb",
+      "slug": "pdb",
+      "title": "Pod Disruption Budgets",
+      "track": "kubernetes",
+      "tags": [
+        "PDB",
+        "voluntary disruption",
+        "drain",
+        "minAvailable",
+        "maxUnavailable"
+      ],
+      "productionQuestion": "A node drain is blocked during an incident. What does the PDB actually guarantee?",
+      "learningDelta": "PDBs bound voluntary disruptions, not failures; minAvailable and maxUnavailable interact with replicas and readiness",
+      "objectives": [
+        "Compute the disruptions a PDB allows from replicas, readiness, and minAvailable.",
+        "Explain why a drain can block when healthy pods are already below the budget.",
+        "Distinguish a voluntary disruption from a node or pod failure.",
+        "Choose a budget that protects availability without making maintenance impossible."
+      ],
+      "minutes": 16,
+      "difficulty": 3
+    },
+    {
+      "id": "kubernetes-pods-deployments",
+      "slug": "pods-deployments",
+      "title": "Pods and Deployments",
+      "track": "kubernetes",
+      "tags": [
+        "pod",
+        "deployment",
+        "replicaset",
+        "rollout",
+        "readiness"
+      ],
+      "productionQuestion": "A Deployment says six replicas but only four pods are ready. Where do you look?",
+      "learningDelta": "A Deployment owns ReplicaSets and Pods; readiness, revision history, and rollout strategy decide whether a change is actually available",
+      "objectives": [
+        "Trace the ownership chain from Deployment to ReplicaSet to Pod.",
+        "Calculate how maxSurge and maxUnavailable change ready capacity during a rollout.",
+        "Separate a running pod from a Ready pod that can receive traffic.",
+        "Read rollout status and revision history when a change stops progressing."
+      ],
+      "minutes": 16,
+      "difficulty": 1
+    },
+    {
       "id": "streaming-poison-messages",
       "slug": "poison-messages",
       "title": "Poison Messages",
@@ -6317,6 +6573,30 @@
         "Choose between token bucket, fixed window, and sliding window for a traffic shape.",
         "Read admitted, rejected, and burst-multiplier signals together.",
         "Defend a burst allowance without turning it into an unbounded exception."
+      ],
+      "minutes": 16,
+      "difficulty": 2
+    },
+    {
+      "id": "kubernetes-rbac",
+      "slug": "rbac",
+      "title": "RBAC and Service Accounts",
+      "track": "kubernetes",
+      "tags": [
+        "RBAC",
+        "service account",
+        "role",
+        "rolebinding",
+        "verbs",
+        "least privilege"
+      ],
+      "productionQuestion": "A pod can read every Secret in its namespace. Which binding allowed it?",
+      "learningDelta": "RBAC is additive allow rules bound to subjects; service accounts, roles, and bindings must be scoped by namespace and verbs",
+      "objectives": [
+        "Trace an API request from a ServiceAccount through its bindings to a role rule.",
+        "Distinguish a Role from a ClusterRole and a RoleBinding from a ClusterRoleBinding.",
+        "Find the binding that grants a workload more access than it needs.",
+        "Reduce a wildcard grant to a scoped set of verbs and resources."
       ],
       "minutes": 16,
       "difficulty": 2
@@ -6808,6 +7088,29 @@
       ],
       "minutes": 16,
       "difficulty": 3
+    },
+    {
+      "id": "kubernetes-requests-limits",
+      "slug": "requests-limits",
+      "title": "Requests, Limits, and QoS",
+      "track": "kubernetes",
+      "tags": [
+        "requests",
+        "limits",
+        "QoS",
+        "throttling",
+        "OOM"
+      ],
+      "productionQuestion": "A pod is OOMKilled while the node has free memory. Which limit mattered?",
+      "learningDelta": "Requests drive scheduling and QoS; limits drive throttling and OOM; they are different controls",
+      "objectives": [
+        "Explain how CPU and memory requests influence scheduling.",
+        "Distinguish CPU throttling from memory OOM termination.",
+        "Identify the QoS class implied by requests and limits.",
+        "Diagnose a pod killed by its cgroup limit despite node headroom."
+      ],
+      "minutes": 18,
+      "difficulty": 2
     },
     {
       "id": "capacity-reserved-instances",
@@ -7411,6 +7714,30 @@
       "difficulty": 4
     },
     {
+      "id": "kubernetes-scheduling",
+      "slug": "scheduling",
+      "title": "Scheduling and Pending Pods",
+      "track": "kubernetes",
+      "tags": [
+        "scheduler",
+        "affinity",
+        "taints",
+        "tolerations",
+        "topology",
+        "pending"
+      ],
+      "productionQuestion": "The node has free CPU but the pod is Pending. Which constraint blocked it?",
+      "learningDelta": "Scheduling filters requests, affinity, taints, and topology; free capacity alone is not enough",
+      "objectives": [
+        "Trace a Pending pod through the scheduler filters instead of reading cluster averages.",
+        "Distinguish free CPU on a node from CPU the scheduler can actually use for this pod.",
+        "Explain how taints, tolerations, and node affinity remove candidates before capacity is scored.",
+        "Choose between relaxing a placement rule and adding capacity in the matching domain."
+      ],
+      "minutes": 18,
+      "difficulty": 3
+    },
+    {
       "id": "deployment-schema-compat",
       "slug": "schema-compat",
       "title": "Schema Compatibility",
@@ -7591,6 +7918,29 @@
         "Choose a TTL and health-check strategy for a service that other services call."
       ],
       "minutes": 16,
+      "difficulty": 2
+    },
+    {
+      "id": "kubernetes-services-networking",
+      "slug": "services-networking",
+      "title": "Services and Endpoints",
+      "track": "kubernetes",
+      "tags": [
+        "service",
+        "selector",
+        "endpoints",
+        "ClusterIP",
+        "kube-proxy"
+      ],
+      "productionQuestion": "Pods are ready but the Service has no endpoints. Why?",
+      "learningDelta": "Services select pods by labels and expose a stable virtual IP; selector, readiness, and endpoints decide whether traffic reaches a pod",
+      "objectives": [
+        "Trace how a Service selector becomes EndpointSlice membership.",
+        "Distinguish a selector mismatch from a readiness failure.",
+        "Explain the ClusterIP data path and the role of kube-proxy.",
+        "Debug dropped Service traffic without changing pod IPs."
+      ],
+      "minutes": 18,
       "difficulty": 2
     },
     {
@@ -8057,6 +8407,29 @@
       ],
       "minutes": 16,
       "difficulty": 2
+    },
+    {
+      "id": "kubernetes-statefulsets",
+      "slug": "statefulsets",
+      "title": "StatefulSets and Stable Storage",
+      "track": "kubernetes",
+      "tags": [
+        "StatefulSet",
+        "ordinal",
+        "PVC",
+        "headless service",
+        "stable identity"
+      ],
+      "productionQuestion": "A StatefulSet pod is recreated with a new volume and loses data. What is misconfigured?",
+      "learningDelta": "StatefulSets provide ordinal identity and stable PVC binding; volumeClaimTemplates and a headless Service are part of the contract",
+      "objectives": [
+        "Trace how a StatefulSet binds a persistent volume claim to a pod ordinal.",
+        "Distinguish pod recreation from claim deletion as the cause of data loss.",
+        "Explain the role of the headless Service in stable network identity.",
+        "Choose a storage and deletion policy that survives rescheduling and scaling."
+      ],
+      "minutes": 18,
+      "difficulty": 3
     },
     {
       "id": "reliability-status-pages",
